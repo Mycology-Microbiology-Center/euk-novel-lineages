@@ -1,5 +1,7 @@
 # 25 novel lineages of Eukaryotes
 
+<img src="assets/MycologyMicrobiologyCenter_logo.png" alt="Mycology and Microbiology Center" width="140" align="right">
+
 Data and code accompanying the manuscript:
 
 > Tedersoo L. et al. 2026 "Discovering 25 novel phyla that fill gaps in the eukaryotic tree of life"

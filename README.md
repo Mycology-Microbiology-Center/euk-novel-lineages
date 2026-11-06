@@ -44,4 +44,12 @@ All other parameters at BLAST+ defaults. To run the search, use the script provi
 
 
 
+## Data availability
+
+- Legitype and representative sequences: ENA accessions OZ474986-OZ475166; UNITE; EUKARYOME (v2.0 onwards)
+- Holotype material and DNA samples: University of Tartu natural history collections (TUE)
+
+## Citation
+
+..
 

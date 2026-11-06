@@ -20,3 +20,16 @@ trees/       # IQ-TREE tree files (Newick) for the global and per-lineage analys
 code/        # code used for the analysis      
 ```
 
+## Main software
+
+| Step | Software |
+|---|---|
+| Read processing | [NextITS](https://github.com/vmikk/NextITS) v1.1.0, [LIMA](https://lima.how/) v2.12.0, [cutadapt](https://github.com/marcelm/cutadapt) v5.1, [ITSx](https://microbiology.se/software/itsx/) v1.1.3 ([HMM profiles](https://github.com/Mycology-Microbiology-Center/ITSx_HMMs)), [VSEARCH](https://github.com/torognes/vsearch), [UNCROSS2](https://doi.org/10.1101/400762) |
+| Taxonomic identification | BLAST+ v2.16.0 |
+| Alignment and trimming | [MAFFT](https://mafft.cbrc.jp/alignment/software/) v7.526, [AliView](https://github.com/AliView/AliView) v1.26, [ClipKIT](https://github.com/JLSteenwyk/ClipKIT) v1.4.0 |
+| Phylogenetics | [IQ-TREE](https://iqtree.github.io/) v2.2.5 |
+| Species delimitation | [VSEARCH](https://github.com/torognes/vsearch), [ASAPy](https://github.com/iTaxoTools/ASAPy) v0.1.2 |
+| Metagenome scaffolds | [Infernal](http://eddylab.org/infernal/) v1.1.5 (Rfam [RF01960](https://rfam.org/family/RF01960), [RF02543](https://rfam.org/family/RF02543)) |
+
+
+

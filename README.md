@@ -32,4 +32,16 @@ code/        # code used for the analysis
 | Metagenome scaffolds | [Infernal](http://eddylab.org/infernal/) v1.1.5 (Rfam [RF01960](https://rfam.org/family/RF01960), [RF02543](https://rfam.org/family/RF02543)) |
 
 
+### BLASTn
+
+BLASTn settings used for all searches: 
+`-task blastn -strand both -max_target_seqs 10 -max_hsps 1`. 
+All other parameters at BLAST+ defaults. To run the search, use the script provided in `code/blastn.sh`:
+
+```bash
+./code/blastn.sh query.fasta EUKARYOME.fasta results_prefix 8
+```
+
+
+
 

@@ -42,6 +42,18 @@ All other parameters at BLAST+ defaults. To run the search, use the script provi
 ./code/blastn.sh query.fasta EUKARYOME.fasta results_prefix 8
 ```
 
+### Alignment trimming and tree building
+
+For each file, to trim the alignment, we used [ClipKIT](https://github.com/JLSteenwyk/ClipKIT) v1.4.0. Trees were built using [IQ-TREE](https://iqtree.github.io/) v2.2.5:
+
+```bash
+
+# Trim all sites that are above a 0.85 threshold of gappyness
+clipkit -m gappy -g 0.85 Euk6i20c.fasta
+
+# Build tree
+iqtree -s Euk6i20c.fasta.clipkit -m TEST -bb 1000 -alrt 1000 -T 3
+```
 
 
 ## Data availability

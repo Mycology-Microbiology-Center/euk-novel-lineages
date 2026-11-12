@@ -58,6 +58,7 @@ iqtree -s Euk6i20c.fasta.clipkit -m TEST -bb 1000 -alrt 1000 -T 3
 
 ## Data availability
 
+- Raw PacBio HiFi reads: ENA BioProject PRJEB129568
 - Legitype and representative sequences: ENA accessions OZ474986-OZ475166; UNITE; EUKARYOME (v2.0 onwards)
 - Holotype material and DNA samples: University of Tartu natural history collections (TUE)
 

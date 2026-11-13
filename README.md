@@ -52,9 +52,9 @@ Each script has a header with usage, inputs and outputs.
 
 ### BLASTn
 
-BLASTn settings used for all searches: 
-`-task blastn -strand both -max_target_seqs 10 -max_hsps 1`. 
-All other parameters at BLAST+ defaults. To run the search, use the script provided in `code/blastn.sh`:
+BLASTn settings used for all searches:
+`-task blastn -strand both -max_target_seqs 10 -max_hsps 1`.
+All other parameters at BLAST+ defaults. To run the search:
 
 ```bash
 ./code/blastn.sh query.fasta EUKARYOME.fasta results_prefix 8
@@ -62,15 +62,39 @@ All other parameters at BLAST+ defaults. To run the search, use the script provi
 
 ### Alignment trimming and tree building
 
-For each file, to trim the alignment, we used [ClipKIT](https://github.com/JLSteenwyk/ClipKIT) v1.4.0. Trees were built using [IQ-TREE](https://iqtree.github.io/) v2.2.5:
+Sites with more than 85% gaps were removed with [ClipKIT](https://github.com/JLSteenwyk/ClipKIT) v1.4.0. Trees were built using [IQ-TREE](https://iqtree.github.io/) v2.2.5:
 
 ```bash
-
 # Trim all sites that are above a 0.85 threshold of gappyness
 clipkit -m gappy -g 0.85 Euk6i20c.fasta
 
 # Build tree
 iqtree -s Euk6i20c.fasta.clipkit -m TEST -bb 1000 -alrt 1000 -T 3
+```
+
+`code/phylogeny/build_tree.sh` runs the same steps, starting from unaligned sequences. Manual alignment curation in AliView is not scripted.
+
+### Species delimitation and richness
+
+```bash
+cd code/species_delimitation
+./01_pairwise_distances.sh ../../alignments_its/ dist_out 8
+Rscript 02_distances_to_mega.R dist_out/dist mega
+find mega -name "*.csv" | parallel -j1 \
+  "ASAP_GENERAL_SEQUENCE_LEN=600 ASAP_GENERAL_MEGA=true ./03_run_asap.sh {} asap/{/.}"
+Rscript 04_parse_asap.R asap ASAP
+Rscript 05_cluster_counts.R mega/distances.rds thresholds.tsv cluster_counts.tsv
+```
+
+### JGI IMG/MER metagenome scaffolds
+
+```bash
+cd code/jgi
+Rscript 01_scaffold_cart.R selected_scaffolds.tsv scaffold_ids
+# upload scaffold_ids/*.txt to the IMG/MER Scaffold Cart, export scaffold data, download *.tar.gz
+./02_extract_rrna.sh scaffold_downloads rrna 8
+Rscript 03_rrna_operons.R rrna rrna
+./04_blast_ends.sh rrna EUKARYOME_SSU.fasta EUKARYOME_LSU.fasta EUKARYOME_ITS.fasta blast 8
 ```
 
 

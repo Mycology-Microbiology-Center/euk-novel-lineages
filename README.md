@@ -32,6 +32,24 @@ code/        # code used for the analysis
 | Metagenome scaffolds | [Infernal](http://eddylab.org/infernal/) v1.1.5 (Rfam [RF01960](https://rfam.org/family/RF01960), [RF02543](https://rfam.org/family/RF02543)) |
 
 
+## Code
+
+| Script | Step |
+|---|---|
+| `code/blastn.sh` | BLASTn search against EUKARYOME |
+| `code/phylogeny/build_tree.sh` | MAFFT alignment, ClipKIT trimming, IQ-TREE inference |
+| `code/species_delimitation/01_pairwise_distances.sh` | Dereplication and all-vs-all ITS identities (VSEARCH) |
+| `code/species_delimitation/02_distances_to_mega.R` | Distance matrices (MEGA CSV for ASAPy; R `dist` objects) |
+| `code/species_delimitation/03_run_asap.sh` | ASAP species delimitation (ASAPy) |
+| `code/species_delimitation/04_parse_asap.R` | Summary of ASAP partitions |
+| `code/species_delimitation/05_cluster_counts.R` | Number of putative species by hierarchical clustering at lineage-specific thresholds (`thresholds.tsv`) |
+| `code/jgi/01_scaffold_cart.R` | Scaffold lists for the JGI IMG/MER Scaffold Cart |
+| `code/jgi/02_extract_rrna.sh` | Combining exported scaffolds; SSU and LSU search with Infernal (Rfam RF01960, RF02543) |
+| `code/jgi/03_rrna_operons.R` | Extraction of SSU, ITS and LSU from complete operons |
+| `code/jgi/04_blast_ends.sh` | BLASTn of SSU, LSU, ITS and the first/last 500 bp of SSU and LSU |
+
+Each script has a header with usage, inputs and outputs.
+
 ### BLASTn
 
 BLASTn settings used for all searches: 

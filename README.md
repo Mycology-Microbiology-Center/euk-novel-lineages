@@ -1,5 +1,7 @@
 # Discovering 25 novel protist lineages that fill gaps in the eukaryotic tree of life
 
+[![DOI](https://zenodo.org/badge/1448284500.svg)](https://doi.org/10.5281/zenodo.24340941)
+
 <img src="assets/MycologyMicrobiologyCenter_logo.png" alt="Mycology and Microbiology Center" width="140" align="right">
 
 Data and code accompanying the manuscript:
@@ -102,7 +104,7 @@ Rscript 03_rrna_operons.R rrna rrna
 - Raw PacBio HiFi reads: ENA BioProject PRJEB129568
 - Legitype and representative sequences: ENA accessions OZ474986-OZ475166; UNITE; EUKARYOME (v2.0 onwards)
 - Holotype material and DNA samples: University of Tartu natural history collections (TUE)
-- Archived release: Zenodo [DOI pending]
+- Archived release: Zenodo [DOI:10.5281/zenodo.24340941](https://doi.org/10.5281/zenodo.24340941)
 
 ## Citation
 

@@ -16,7 +16,6 @@ We generated long-read (PacBio HiFi) metabarcoding data covering much of the euk
 
 ```
 alignments/  # per-lineage SSU-ITS-LSU alignments (ClipKIT-trimmed) and ITS alignments
-trees/       # IQ-TREE tree files (Newick) for the global and per-lineage analyses
 code/        # code used for the analysis      
 ```
 
